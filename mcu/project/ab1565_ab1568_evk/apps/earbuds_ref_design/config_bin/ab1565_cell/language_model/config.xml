@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<lm_configuration>
+
+<version>0.0.1.50</version>
+
+<magic_num>LM PARTITION</magic_num>
+
+<partition name="ROM_LM">
+    <item language="en_all">
+        <state>0x00</state>
+        <model_type>0x01</model_type>
+        <model_running>0x01</model_running>
+        <purpose>0x02</purpose>
+        <space_length>0x14000</space_length>
+        <model_version>0.1.2.3</model_version>
+        <model_file>../../../../../prebuilt/middleware/third_party/language_model/gsound/ab156x/en_all.ota</model_file>
+    </item>
+    <item language="en-US">
+        <state>0x00</state>
+        <model_type>0x00</model_type>
+        <model_running>0x01</model_running>
+        <purpose>0x02</purpose>
+        <space_length>0xF000</space_length>
+        <model_version>0.1.2.3</model_version>
+        <model_file>../../../../../prebuilt/middleware/third_party/language_model/ama/WR_50k.en-US.alexa.bin</model_file>
+    </item>
+</partition>
+</lm_configuration>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<lm_configuration>
+
+<version>0.0.1.50</version>
+
+<magic_num>LM PARTITION</magic_num>
+
+<partition name="ROM_LM">
+    <item language="en_all">
+        <state>0x00</state>
+        <model_type>0x01</model_type>
+        <model_running>0x01</model_running>
+        <purpose>0x02</purpose>
+        <space_length>0x19000</space_length>
+        <model_version>0.1.2.3</model_version>
+        <model_file>../../../../../prebuilt/middleware/third_party/language_model/gsound/ab156x/en_all.ota</model_file>
+    </item>
+    <item language="ja_jp">
+        <state>0x00</state>
+        <model_type>0x01</model_type>
+        <model_running>0x00</model_running>
+        <purpose>0x00</purpose>
+        <space_length>0x19000</space_length>
+        <model_version>0.1.2.3</model_version>
+        <model_file>../../../../../prebuilt/middleware/third_party/language_model/gsound/ab156x/ja_jp.ota</model_file>
+    </item>
+    <item language="">
+        <state>0x00</state>
+        <model_type>0x01</model_type>
+        <model_running>0x00</model_running>
+        <purpose>0x01</purpose>
+        <space_length>0x19000</space_length>
+        <model_version>0.1.2.3</model_version>
+        <!-- <model_file></model_file> -->
+    </item>
+    <item language="de-DE">
+        <state>0x00</state>
+        <model_type>0x00</model_type>
+        <model_running>0x00</model_running>
+        <purpose>0x02</purpose>
+        <space_length>0x11800</space_length>
+        <model_version>0.1.2.4</model_version>
+        <model_file>../../../../../prebuilt/middleware/third_party/language_model/ama/WR_50k.de-DE.alexa.bin</model_file>
+    </item>
+    <item language="en-AU">
+        <state>0x00</state>
+        <model_type>0x00</model_type>
+        <model_running>0x00</model_running>
+        <purpose>0x02</purpose>
+        <space_length>0x11800</space_length>
+        <model_version>0.1.2.4</model_version>
+        <model_file>../../../../../prebuilt/middleware/third_party/language_model/ama/WS_50k.en-AU.alexa.bin</model_file>
+    </item>
+    <item language="en-GB">
+        <state>0x00</state>
+        <model_type>0x00</model_type>
+        <model_running>0x00</model_running>
+        <purpose>0x02</purpose>
+        <space_length>0x11800</space_length>
+        <model_version>0.1.2.4</model_version>
+        <model_file>../../../../../prebuilt/middleware/third_party/language_model/ama/WS_50k.en-GB.alexa.bin</model_file>
+    </item>
+    <item language="en-IN">
+        <state>0x00</state>
+        <model_type>0x00</model_type>
+        <model_running>0x00</model_running>
+        <purpose>0x02</purpose>
+        <space_length>0x11800</space_length>
+        <model_version>0.1.2.4</model_version>
+        <model_file>../../../../../prebuilt/middleware/third_party/language_model/ama/WR_50k.en-IN.alexa.bin</model_file>
+    </item>
+    <item language="en-US">
+        <state>0x00</state>
+        <model_type>0x00</model_type>
+        <model_running>0x01</model_running>
+        <purpose>0x02</purpose>
+        <space_length>0x11800</space_length>
+        <model_version>0.1.2.4</model_version>
+        <model_file>../../../../../prebuilt/middleware/third_party/language_model/ama/WR_50k.en-US.alexa.bin</model_file>
+    </item>
+    <item language="es-ES">
+        <state>0x00</state>
+        <model_type>0x00</model_type>
+        <model_running>0x00</model_running>
+        <purpose>0x02</purpose>
+        <space_length>0x11800</space_length>
+        <model_version>0.1.2.4</model_version>
+        <model_file>../../../../../prebuilt/middleware/third_party/language_model/ama/WR_50k.es-ES.alexa.bin</model_file>
+    </item>
+    <item language="es-MX">
+        <state>0x00</state>
+        <model_type>0x00</model_type>
+        <model_running>0x00</model_running>
+        <purpose>0x02</purpose>
+        <space_length>0x11800</space_length>
+        <model_version>0.1.2.4</model_version>
+        <model_file>../../../../../prebuilt/middleware/third_party/language_model/ama/WR_50k.es-MX.alexa.bin</model_file>
+    </item>
+    <item language="fr-CA">
+        <state>0x00</state>
+        <model_type>0x00</model_type>
+        <model_running>0x00</model_running>
+        <purpose>0x02</purpose>
+        <space_length>0x11800</space_length>
+        <model_version>0.1.2.4</model_version>
+        <model_file>../../../../../prebuilt/middleware/third_party/language_model/ama/WS_50k.fr-CA.alexa.bin</model_file>
+    </item>
+    <item language="fr-FR">
+        <state>0x00</state>
+        <model_type>0x00</model_type>
+        <model_running>0x00</model_running>
+        <purpose>0x02</purpose>
+        <space_length>0x11800</space_length>
+        <model_version>0.1.2.4</model_version>
+        <model_file>../../../../../prebuilt/middleware/third_party/language_model/ama/WS_50k.fr-FR.alexa.bin</model_file>
+    </item>
+    <item language="it-IT">
+        <state>0x00</state>
+        <model_type>0x00</model_type>
+        <model_running>0x00</model_running>
+        <purpose>0x02</purpose>
+        <space_length>0x11800</space_length>
+        <model_version>0.1.2.4</model_version>
+        <model_file>../../../../../prebuilt/middleware/third_party/language_model/ama/WR_50k.it-IT.alexa.bin</model_file>
+    </item>
+
+    <item language="ja-JP">
+        <state>0x00</state>
+        <model_type>0x00</model_type>
+        <model_running>0x00</model_running>
+        <purpose>0x02</purpose>
+        <space_length>0x11800</space_length>
+        <model_version>0.1.2.4</model_version>
+        <model_file>../../../../../prebuilt/middleware/third_party/language_model/ama/WS_50k.ja-JP.alexa.bin</model_file>
+    </item>
+    <item language="pt-BR">
+        <state>0x00</state>
+        <model_type>0x00</model_type>
+        <model_running>0x00</model_running>
+        <purpose>0x02</purpose>
+        <space_length>0x11800</space_length>
+        <model_version>0.1.2.4</model_version>
+        <model_file>../../../../../prebuilt/middleware/third_party/language_model/ama/WS_50k.pt-BR.alexa.bin</model_file>
+    </item>
+</partition>
+</lm_configuration>

@@ -1,0 +1,24 @@
+<NV_Keys>
+<Version>2.0</Version>
+
+<!-- BT Controller Part Begin -->
+
+<NVKey KeyID="0x204E">
+    <Value>0x48001E0004000A000400</Value>
+</NVKey>
+
+<NVKey KeyID="0x3821">
+<Value>0xAFFE0DFED8BF7B87</Value>
+</NVKey>
+
+<NVKey KeyID="0x3822">
+<Value>0x0F00000000000000</Value>
+</NVKey>
+
+<NVKey KeyID="0x3823">
+<Value>0x0001000000000000</Value>
+</NVKey>
+
+<!-- BT Controller Part End -->
+
+</NV_Keys>

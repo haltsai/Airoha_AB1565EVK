@@ -1,0 +1,26 @@
+var group___s_t_r_e_a_m___f_u_n_c_t_i_o_n =
+[
+    [ "stream_function_get_1st_inout_buffer", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#ga632ba0dc739376bcc11bcc87d09ffc84", null ],
+    [ "stream_function_get_2nd_inout_buffer", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#ga7ebdb3ceb13749dc46f08a975bccd8e2", null ],
+    [ "stream_function_get_3rd_inout_buffer", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#ga7d8d4de2b40a0f041de3f6043a0bfafe", null ],
+    [ "stream_function_get_4th_inout_buffer", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#gae9993fcdff862109fd2442233068c434", null ],
+    [ "stream_function_get_5th_inout_buffer", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#gaef2856b4c93f70771d57c4fac76ae0da", null ],
+    [ "stream_function_get_6th_inout_buffer", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#gab2b32d75286e715187c2e07e0b8c8d77", null ],
+    [ "stream_function_get_channel_number", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#gaea696614549bdfd7551824961cc20b5b", null ],
+    [ "stream_function_get_decoder_type", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#gab146c3537947e3e25bef2c3c12f3e677", null ],
+    [ "stream_function_get_device_channel_number", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#gac2cba650bb20b5dc3b18b36376098486", null ],
+    [ "stream_function_get_inout_buffer", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#ga507e47dda0496f375c80bc712ba47818", null ],
+    [ "stream_function_get_numbering", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#ga1a025947a6cce2c35d1d55b6caf889b4", null ],
+    [ "stream_function_get_output_resolution", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#ga657a48184b83a234266fa41a5e281642", null ],
+    [ "stream_function_get_output_size", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#ga85d55efc1164a42643d4ae94fe1463c5", null ],
+    [ "stream_function_get_samplingrate", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#gad640e9fdc71aa2bb45c5ce5e46671467", null ],
+    [ "stream_function_get_sink_output_resolution", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#ga046b2c1651c33bf2328cb3df029a71e4", null ],
+    [ "stream_function_get_software_channel_number", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#gaad7a859eb7fef677a2d6d8f093dea354", null ],
+    [ "stream_function_get_task", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#ga8092c36d388996defcf1f26c739ae1df", null ],
+    [ "stream_function_get_type", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#gae7f861553996ec174b2ed1caf5f15e98", null ],
+    [ "stream_function_get_working_buffer", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#ga42ed82e4cb4e55ef9a60241c44d1c9d3", null ],
+    [ "stream_function_modify_output_resolution", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#gacf5b31dd8300450cfd2f64e3f8b3141b", null ],
+    [ "stream_function_modify_output_size", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#ga1326aa1195e7a1a67869e01c7e1b63d7", null ],
+    [ "stream_function_modify_samplingrateconversion_ratio", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#ga4d775944d80ab29624a9b8339a50964a", null ],
+    [ "stream_function_reenter_stream", "group___s_t_r_e_a_m___f_u_n_c_t_i_o_n.html#gaa7aa0578280c81e757d267891e057fc3", null ]
+];

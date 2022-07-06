@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['hal_5fcache_5fregion_5fconfig_5ft',['hal_cache_region_config_t',['../structhal__cache__region__config__t.html',1,'']]],
+  ['hal_5fccni_5ffunction_5ft',['hal_ccni_function_t',['../structhal__ccni__function__t.html',1,'']]],
+  ['hal_5fccni_5fmessage_5ft',['hal_ccni_message_t',['../structhal__ccni__message__t.html',1,'']]],
+  ['hal_5feint_5fconfig_5ft',['hal_eint_config_t',['../structhal__eint__config__t.html',1,'']]],
+  ['hal_5fi2c_5fconfig_5ft',['hal_i2c_config_t',['../structhal__i2c__config__t.html',1,'']]],
+  ['hal_5fi2c_5freceive_5fconfig_5ft',['hal_i2c_receive_config_t',['../structhal__i2c__receive__config__t.html',1,'']]],
+  ['hal_5fi2c_5frunning_5fstatus_5ft',['hal_i2c_running_status_t',['../structhal__i2c__running__status__t.html',1,'']]],
+  ['hal_5fi2c_5fsend_5fconfig_5ft',['hal_i2c_send_config_t',['../structhal__i2c__send__config__t.html',1,'']]],
+  ['hal_5fi2c_5fsend_5fto_5freceive_5fconfig_5fex_5ft',['hal_i2c_send_to_receive_config_ex_t',['../structhal__i2c__send__to__receive__config__ex__t.html',1,'']]],
+  ['hal_5fi2c_5fsend_5fto_5freceive_5fconfig_5ft',['hal_i2c_send_to_receive_config_t',['../structhal__i2c__send__to__receive__config__t.html',1,'']]],
+  ['hal_5fspi_5fmaster_5fadvanced_5fconfig_5ft',['hal_spi_master_advanced_config_t',['../structhal__spi__master__advanced__config__t.html',1,'']]],
+  ['hal_5fspi_5fmaster_5fchip_5fselect_5ftiming_5ft',['hal_spi_master_chip_select_timing_t',['../structhal__spi__master__chip__select__timing__t.html',1,'']]],
+  ['hal_5fspi_5fmaster_5fconfig_5ft',['hal_spi_master_config_t',['../structhal__spi__master__config__t.html',1,'']]],
+  ['hal_5fspi_5fmaster_5fsend_5fand_5freceive_5fconfig_5ft',['hal_spi_master_send_and_receive_config_t',['../structhal__spi__master__send__and__receive__config__t.html',1,'']]],
+  ['hal_5fsw_5fdma_5fconfig_5finfo_5ft',['hal_sw_dma_config_info_t',['../structhal__sw__dma__config__info__t.html',1,'']]],
+  ['hal_5fsw_5fgpt_5fabsolute_5fparameter_5ft',['hal_sw_gpt_absolute_parameter_t',['../structhal__sw__gpt__absolute__parameter__t.html',1,'']]],
+  ['hal_5fuart_5fconfig_5ft',['hal_uart_config_t',['../structhal__uart__config__t.html',1,'']]],
+  ['hal_5fuart_5fdma_5fconfig_5ft',['hal_uart_dma_config_t',['../structhal__uart__dma__config__t.html',1,'']]]
+];

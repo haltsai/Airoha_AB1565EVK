@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\bat]
+@="IotLog-Parse"
+
+[HKEY_CLASSES_ROOT\*\shell\bat\command]
+@="D:\\mtk60433\\Tool\\IotOfflineDebugSuite_v0.1845.00\\IotLog_Parse.bat \"%l\"" 

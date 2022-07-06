@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['sample_5fselect',['sample_select',['../structhal__spi__master__advanced__config__t.html#a41f629180054df0035cb9e3e19b6a84d',1,'hal_spi_master_advanced_config_t']]],
+  ['send_5fbytes_5fin_5fone_5fpacket',['send_bytes_in_one_packet',['../structhal__i2c__send__config__t.html#acd3b03c4662daa03fa34b5c45afd6278',1,'hal_i2c_send_config_t::send_bytes_in_one_packet()'],['../structhal__i2c__send__to__receive__config__ex__t.html#acd3b03c4662daa03fa34b5c45afd6278',1,'hal_i2c_send_to_receive_config_ex_t::send_bytes_in_one_packet()']]],
+  ['send_5fdata',['send_data',['../structhal__i2c__send__to__receive__config__t.html#ad0c90e0dbe62c37e1c53d6d869ee635d',1,'hal_i2c_send_to_receive_config_t::send_data()'],['../structhal__i2c__send__config__t.html#ad0c90e0dbe62c37e1c53d6d869ee635d',1,'hal_i2c_send_config_t::send_data()'],['../structhal__i2c__send__to__receive__config__ex__t.html#ad0c90e0dbe62c37e1c53d6d869ee635d',1,'hal_i2c_send_to_receive_config_ex_t::send_data()'],['../structhal__spi__master__send__and__receive__config__t.html#add1fa76432b5a682cdaaf91f1869e9c2',1,'hal_spi_master_send_and_receive_config_t::send_data()']]],
+  ['send_5flength',['send_length',['../structhal__i2c__send__to__receive__config__t.html#a8e7eccfd5933bdf3c1b1f9fe67e9f2cf',1,'hal_i2c_send_to_receive_config_t::send_length()'],['../structhal__spi__master__send__and__receive__config__t.html#a8e7eccfd5933bdf3c1b1f9fe67e9f2cf',1,'hal_spi_master_send_and_receive_config_t::send_length()']]],
+  ['send_5fpacket_5flength',['send_packet_length',['../structhal__i2c__send__config__t.html#afeb3cf68ab69d32aea71089023171ad3',1,'hal_i2c_send_config_t::send_packet_length()'],['../structhal__i2c__send__to__receive__config__ex__t.html#afeb3cf68ab69d32aea71089023171ad3',1,'hal_i2c_send_to_receive_config_ex_t::send_packet_length()']]],
+  ['send_5fvfifo_5fbuffer',['send_vfifo_buffer',['../structhal__uart__dma__config__t.html#a525c0495222fd54a2964cdddffe3eff2',1,'hal_uart_dma_config_t']]],
+  ['send_5fvfifo_5fbuffer_5fsize',['send_vfifo_buffer_size',['../structhal__uart__dma__config__t.html#a47adf9820e97501c1ef4d7db846f6c25',1,'hal_uart_dma_config_t']]],
+  ['send_5fvfifo_5fthreshold_5fsize',['send_vfifo_threshold_size',['../structhal__uart__dma__config__t.html#a45ecb1bdf5ba4a86b9e742f050765533',1,'hal_uart_dma_config_t']]],
+  ['slave_5faddress',['slave_address',['../structhal__i2c__send__to__receive__config__t.html#ac93868aeda435dfb685a0a0020e5c7a4',1,'hal_i2c_send_to_receive_config_t::slave_address()'],['../structhal__i2c__send__config__t.html#ac93868aeda435dfb685a0a0020e5c7a4',1,'hal_i2c_send_config_t::slave_address()'],['../structhal__i2c__receive__config__t.html#ac93868aeda435dfb685a0a0020e5c7a4',1,'hal_i2c_receive_config_t::slave_address()'],['../structhal__i2c__send__to__receive__config__ex__t.html#ac93868aeda435dfb685a0a0020e5c7a4',1,'hal_i2c_send_to_receive_config_ex_t::slave_address()']]],
+  ['slave_5fport',['slave_port',['../structhal__spi__master__config__t.html#ab69d42d19d5b7eab72b1584b4fc2535d',1,'hal_spi_master_config_t']]],
+  ['source_5faddress',['source_address',['../structhal__sw__dma__config__info__t.html#ac49207258d3fa0feebe6500bfec32a91',1,'hal_sw_dma_config_info_t']]],
+  ['stop_5fbit',['stop_bit',['../structhal__uart__config__t.html#a5d6a868d459948f92b2d60cdf1d15293',1,'hal_uart_config_t']]],
+  ['stream_5ffeature_5flist_5fa2dp',['stream_feature_list_a2dp',['../group___stream.html#ga297bc5e4944dde1639ff3ec2852496b9',1,'dsp_sdk.h']]],
+  ['stream_5ffeature_5flist_5fhfp_5fdownlink',['stream_feature_list_hfp_downlink',['../group___stream.html#gafb116f8f79fc28695fa2c53c4e68f437',1,'dsp_sdk.h']]],
+  ['stream_5ffeature_5flist_5fhfp_5fuplink',['stream_feature_list_hfp_uplink',['../group___stream.html#gac83897e18306999ed8aeb0210af11f09',1,'dsp_sdk.h']]],
+  ['stream_5ffeature_5flist_5flinein',['stream_feature_list_linein',['../group___stream.html#gafce29059c0c857aa9db9e62ad4e63701',1,'dsp_sdk.h']]],
+  ['stream_5ffeature_5flist_5fmic_5frecord',['stream_feature_list_mic_record',['../group___stream.html#gadeeee9ff233b0a8b4dd206efa61d0ba1',1,'dsp_sdk.h']]],
+  ['stream_5ffeature_5flist_5fmic_5frecord_5fairdump',['stream_feature_list_mic_record_airdump',['../group___stream.html#ga3c64163e0f1d8b11fba5063d28ed3b75',1,'dsp_sdk.h']]],
+  ['stream_5ffeature_5flist_5fplayback',['stream_feature_list_playback',['../group___stream.html#ga52ab78c01d97d55f482b67978fc9bc21',1,'dsp_sdk.h']]],
+  ['stream_5ffeature_5flist_5fprompt',['stream_feature_list_prompt',['../group___stream.html#ga23aac1dcac3b8db572279d9201b97c6e',1,'dsp_sdk.h']]],
+  ['stream_5ffeature_5flist_5fvend_5fa2dp',['stream_feature_list_vend_a2dp',['../group___stream.html#gaa88598314287c356b49a4ec70396633b',1,'dsp_sdk.h']]],
+  ['stream_5ffeature_5flist_5fwwe_5fmic_5frecord',['stream_feature_list_wwe_mic_record',['../group___stream.html#ga399fd85ef91fe51909be5cc75ea1feba',1,'dsp_sdk.h']]],
+  ['stream_5ffeature_5ftable',['stream_feature_table',['../group___stream.html#gadcbcfa4bbf9c0996e80d59a08893529d',1,'dsp_sdk.h']]]
+];

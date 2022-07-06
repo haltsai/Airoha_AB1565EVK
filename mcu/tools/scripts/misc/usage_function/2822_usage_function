@@ -1,0 +1,91 @@
+###############################################################################
+#Functions
+show_usage () {
+    echo "==============================================================="
+    echo "Build Project"
+    echo "==============================================================="
+    echo "Usage: $0 <board> <project> [bl|clean] <argument>"
+    echo ""
+    echo "Example:"
+    echo "       $0 mt2822 earbuds_ref_design"
+    echo "       $0 mt2822 earbuds_ref_design bl      (build with bootloader)"
+    echo "       $0 clean                      (clean folder: out)"
+    echo "       $0 mt2822 clean           (clean folder: out/mt2822)"
+    echo "       $0 mt2822 earbuds_ref_design clean   (clean folder: out/mt2822/earbuds_ref_design)"
+    echo ""
+    echo "Argument:"
+    echo "       -f=<feature makefile> or --feature=<feature makefile>"
+    echo "           Replace feature.mk with other makefile. For example, "
+    echo "           the feature_example.mk is under project folder, -f=feature_example.mk"
+    echo "           will replace feature.mk with feature_example.mk."
+    echo ""
+    echo "       -o=<make option> or --option=<make option>"
+    echo "           Assign additional make option. For example, "
+    echo "           to compile module sequentially, use -o=-j1."
+    echo "           to turn on specific feature in feature makefile, use -o=<feature_name>=y"
+    echo "           to assign more than one options, use -o=<option_1> -o=<option_2>."
+    echo ""
+    echo "==============================================================="
+    echo "List Available Example Projects"
+    echo "==============================================================="
+    echo "Usage: $0 list"
+    echo ""
+}
+
+show_available_proj () {
+    echo "==============================================================="
+    echo "Available CM4 Build Projects:"
+    #echo "total args passed to me $#"
+    if [ $# -eq "2" ]; then
+        board=$1
+        project=$2
+        echo "  board: $board"
+        echo "  project: $project"
+        echo "  "
+        echo "  Example:      Using feature.mk as default for every project."
+        echo "       $0 mt2822 earbuds_ref_design"
+        echo "==============================================================="
+        features=$(echo $FEATURE_LIST | tr " " "\n" | grep "$board" |grep "$project")
+        echo  "  "$board
+        echo "  ""  "$project
+        for f in $features
+        do
+            if [ "$(basename $f)" != "feature.mk" ]; then
+                echo "  ""  ""    ""|-"$(basename $f)
+            fi
+        done
+    else
+        echo "  "
+        echo "  Example:      Using feature.mk as default for every project."
+        echo "  "
+        echo "       $0 mt2822 earbuds_ref_design"
+        echo "==============================================================="
+        for b in $BOARD_LIST
+        do
+            project_path=""
+            feature_list=""
+            p=$(echo $PROJECT_LIST | tr " " "\n" | grep "$b")
+            if [ ! -z "$p" ]; then
+                echo  "  "`basename $b`
+            fi
+            for q in $p
+            do
+                if [ -e "$q" ]; then
+                    project_path=$(echo $q | sed 's/GCC\/Makefile//')
+                    projectName=$(basename $project_path)
+                    echo "  ""  "$projectName
+
+                    features=$(echo $FEATURE_LIST | tr " " "\n" | grep "$b" |grep "$projectName")
+                    for f in $features
+                    do
+                        if [ "$(basename $f)" != "feature.mk" ]; then
+                            echo "  ""  ""    ""|-"$(basename $f)
+                        fi
+                    done
+                fi
+            done
+
+        done
+    fi
+}
+

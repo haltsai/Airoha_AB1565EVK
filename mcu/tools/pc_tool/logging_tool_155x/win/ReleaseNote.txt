@@ -1,0 +1,467 @@
+================================================================================================
+Version         : 1.5.12.0
+Release Date    : 20200408
+
+Changed:
+    1) Update flow for handle dll data
+
+================================================================================================
+Version         : 1.5.11.0
+Release Date    : 20200130
+
+Changed:
+    1) Update exception_handler to 1.6
+    2) Change UI: Assert toggle on when connected
+    3) Update minidump: do not limit 4KB
+
+================================================================================================
+Version         : 1.5.10.0
+Release Date    : 20191203
+
+Changed:
+    1) fix search goto not work
+    2) fix logging highlight not work
+
+================================================================================================
+Version         : 1.5.9.0
+Release Date    : 20191127
+
+Changed:
+    1) fix invalid format crash on Win10
+
+================================================================================================
+Version         : 1.5.8.0
+Release Date    : 20191115
+
+Changed:
+    1) fix log search always empty
+    2) fix open log file show nothing
+
+================================================================================================
+Version         : 1.5.7.0
+Release Date    : 20191111
+
+Changed:
+    1) fix timestamp for saving filename
+
+================================================================================================
+Version         : 1.5.6.0
+Release Date    : 20191107
+
+Changed:
+    1) fix crash after long time recording
+    2) improve write to disk speed
+    3) improve UI loading
+
+================================================================================================
+Version         : 1.5.5.0
+Release Date    : 20191017
+
+Changed:
+    1) click "Serial Port" button would ask to set DSP0 dsp0_log_str.bin
+
+================================================================================================
+Version         : 1.5.4.0
+Release Date    : 20190917
+
+Changed:
+    1) update exception tool to 1.5
+    2) minor changes
+
+================================================================================================
+Version         : 1.5.3.0
+Release Date    : 20190415
+
+Changed:
+    1) improve log flow
+    2) update hci_handler.dll 
+
+================================================================================================
+Version         : 1.5.2.0
+Release Date    : 20190409
+
+Changed:
+    1) update audio_handler.dll to 1.0.2
+    2) click "Serial Port" button would ask to set CM4 cm4_log_str.bin
+    3) click "Start" button will reload log binary
+
+================================================================================================
+Version         : 1.5.1.0
+Release Date    : 20190320
+
+Added:
+    1) add TYPE_N9_DATA
+
+Changed:
+    1) update audio_handler.dll to 1.0.1
+    2) reduce deploy size
+
+================================================================================================
+Version         : 1.5.0.0
+Release Date    : 20190220
+
+Fixed:
+    1) fix dll handler flow
+    2) add HCI handler
+
+================================================================================================
+Version         : 1.4.9.0
+Release Date    : 20190122
+
+Fixed:
+    1) fix UI update freeze, change UI flow, update every 300 ms
+    2) fix Flashlogdump depend from debug version runtime (msvcr110d.dll) to release version (msvcr110.dll)
+
+================================================================================================
+Version         : 1.4.8.0
+Release Date    : 201810225
+
+Change point:
+1. New feature
+    1) Enhance the log configuration flow
+    2) Add the register operation support 
+        Including write and read
+    3) Set default configuration about UART
+        Baud rate       - 3000000
+        Flow control    - Software flow control
+    4) Re-factory flash log dump flow
+        The flash log format is changed, change the dll and the parsing flow.
+    5) Support capturing from USB
+        Select the USB in the serial port configuration dialog.
+        Support capturing the initialize log when device reset operation happen.
+    6) Add message ID binary file not match feature (for on-line mode)
+        When the settled message ID binary file information is not match the device running one,
+        the logging tool should display a pop-up window to notify user the correct message ID binary file should be.
+    7) Exception dump tool support to generate the CM4 call-graph information in the exception report
+
+2. Bug fix
+    1) Fix potential crash issue in the log operation
+        New QFile object failed and the pointer is NULL.
+    2) Enhance the delete operation
+        The delete operation only enabled in the on-line mode.
+    3) Fix crash issue while click the exit operation
+    4) Fix the log message binary ID set path error
+
+================================================================================================
+Version         : 1.4.7.0
+Release Date    : 20180913
+
+Change point:
+1. New feature
+    1) Add the logging tool path into the window title
+    2) Add the open/save log path into the sub-window title
+    3) Remove the software flow control xOnChar/xOffChar/Escape char configuration items
+        The values are default(xOnChar : 0x11, xOffChar : 0x13, escape char : 0x77)
+    4) Support to configure the out binaries if already settled while running on-line mode
+    5) Support to configure the out binaries when open the exception files
+        If the out binaries are not settled before, the selections should be saved.
+        If the out binaries are settled before, the selections should be temporary.
+    6) Add delete button to clear the text logs including the UI items and the text logs which saved in the temp files
+    7) Disable the scroll buttons while current is running.
+        When stopped, enable the buttons again according to the current state
+            Compare the log start time and the UI start time to enable the scroll up/top buttons
+            Compare the log end time and the UI end time to enable the scroll down/bottom buttons
+    8) Support baud rate 3M with software flow control
+    
+2. Bug fix
+    1) Fix the data lost issue
+        a. Fix data parse flow issues - the length to remove is wrong
+        b. Need device support software flow control
+    2) Re-factory the serial port part
+        Remove the thread object which to run the serial port operations. Use object which remove to 
+        thread to run.
+    3) Fix all off issue
+        If turn off all the processor modules, the log configuration action cannot enable again
+        Cause the check with wrong parameter.
+    4) Fix close the main window, but the process do not exit issue
+        Cause the QtConncurrent::run method do not exit/cannot cancel by QFuture.cancel API
+        While the QtConncurrent::run method will cause the crash when exist the application
+        Use the QRunnable to replace the QtConncurrent method
+
+================================================================================================
+Version         : 1.4.6.0
+Release Date    : 20180726
+
+Change point:
+1. New feature
+    1) Use the QSerialPort to capture the logs from UART
+    2) Expand the UI list form items from 1000 to 12 * 10000
+    3) Support double click in the search list form
+        While double click the item in the search list form, the tool should jump to the main log list from
+        and select the double clicked items in the search list form, and the main log list form should make
+        sure the row be visible.
+    4) Support to tag the selected rows
+        Support to tag the selected rows in the list form (including search list form and the main log list form).
+        Tag shortcut
+        F2 : Tag/un-tag the selected rows
+        Esc: un-tag all tagged rows
+    5) Support to jump the previous/next tagged row
+        If the list from has the tagged rows, use the shortcut to jump to previous / next tagged row
+        Shortcut
+        F3 : Jump to previous tagged row
+        F4 : Jump to next tagged row
+    6) Search feature
+        Only support to search the logs in the main log list form UI, do not support to search from the file
+    7) Exception dump
+        If the logging tool folder do not exist the "app" folder or there is no "exception_handle.exe" exception dump application,
+        the "Out binary" action should be disabled, and the file open should not able to open the full exception dump file.
+        If one of the error happens, the DSP file selector in the "Out Binary" dialog should be disabled
+            If the "dsp0_core_winabi_xtensac_shortcut.bat" and "dsp1_core_winabi_xtensac_shortcut.bat" is not exist, both of the DSP file selector should be disabled
+            If "dsp0_core_winabi_xtensac_shortcut.bat" is not exist, the DSP0 file selector should be disabled.
+            If "dsp1_core_winabi_xtensac_shortcut.bat" is not exist, the DSP1 file selector should be disabled.
+    8) Stop scroll feature
+        Currently support tag the line while the auto scroll is disabled
+    9) Replace the alert dialog with QMessageBox
+    10) After stopped, the log should not jump the first one
+
+2. Bug fix
+    1) Fix potential crash while closing the UART
+        Cause the signal and slot are connected with direction, so if the UART has been plugout, the tool close the UART firstly,
+        then the plug-out handle again, Crash happen
+        Solution: Use the QtConncurrent to close in a new thread, add protection in the close operation
+    2) Fix the search issue
+        Search result no list in the form, cause the search result is append with empty string and the filter operation return false always.
+        Solution : Check the append result log, if the log module/level/processor is empty, append the TEXT_NA into the result
+
+================================================================================================
+Version         : 1.4.5.0
+Release Date    : 20180719
+
+Change point:
+1. New feature
+    1) stop scroll feature
+        Can stop scrolling while capturing the logs
+        If stopped, enable again, the logs should be update into the UI and scroll to the bottom
+        The stop scroll button should only be enabled when running state.
+    2) Exception UI enhance
+        If the logging tool do not contains the exception dump tool, the out binary and the log open filter should be disabled
+        If the logging tool do not contains the DSP bat file, the DSP file selector in the out binary select form should be disabled, can only dump CM4 exception
+    3) Log configuration
+        If the device reset, the log configuration button should be disabled. when retrieve finished, enable again
+        If configured the logs, while writing command, the log configure button should be disabled, when received command, enable again
+        while write the configure command and waiting the response, the status bar should display the status and the result, after 5 seconds, make the status disappear.
+        
+2. Bug fix
+    1) While running, reset the device, log configuration cannot enable
+        Root cause:
+            cause reset the transportor to be NULL when received the init command
+        Solution:
+            Only reset the log configurations, do not reset the transportor.
+            Reset the transportor only when the UART is closed.
+
+================================================================================================
+Version         : 1.4.4.0
+Release Date    : 20180716
+
+Change point:
+1. New feature
+    Add tool crash support, save the crash call stack into the dump file.
+    Use the windbg/VS to get the exception address, and use the addr2line.exe to dump the crash stack
+    
+2. Bug fix
+    1) Fix the log cannot display in the UI issue
+    2) Fix tool crash issues
+    3) Fix "Up" button scroll to top issue
+    4) Fix save window issue, do not display the save alert window
+
+================================================================================================
+Version         : 1.4.3.0
+Release Date    : 20180703
+
+Change point:
+1. Bug fix:
+    1) Sometimes the log cannot be shown in the main log form
+       Cause the timer event is not notified
+       Kill the timer when the online capturing stopped.
+    2) In the configuration dialog, the configuration cannot be changed when the configuration need to save to NVDM
+       Cause the data type is wrong to enlarge.
+       Force change the data type
+
+================================================================================================
+Version         : 1.4.2.0
+Release Date    : 20180628
+
+Change point:
+1. New feature
+    1) Select the log binary and the out binary related
+    2) If the message id binary is not settled set or set wrong message id binary, notify UI with error information
+    3) Support plugout from the PC
+        If the UART has been plugout while running, the logging tool should pop up an alert dialog to notify
+
+2. Bug fix
+    1) fix the online crash dump issue which the dump failed
+        Cause the dump application has some errors
+        Cause the online dump saved path is empty
+    2) when the text log append length less than 1000, the log list form show empty lines
+        cause the insert index is error
+    3) Fix potential crash while exiting application
+    4) while online catching, when stopped, the filter dialog cannot show the levels/processors/modules
+        cause the information did not update to the filter information dialog
+
+
+================================================================================================
+Version         : 1.4.1.0
+Release Date    : 20180625
+
+Change point:
+1. New feature
+    1) Support to dump the time stamp and the processor ID, and parse the related value to audio handler
+    2) UART refactory
+        Write the UART read/write/open/close in a C program which built to a dll library
+        In the logging tool, call the dll to capture the data from UART
+        The dll support software flow control
+    3) File selection
+        If one of the file selected in the log binary / out binary dialog, the other select folder should according
+        to the last selected folder
+    
+2. Bug fix
+    1) Fix UI hang issue
+        add timer in the UI for 1 second, each second to update the UI
+    2) Fix the alert dialog pop up multi times while dump the exception log in the flash log
+        while dump flash log, do not pop up the dialog again
+    3) After reset the out binary selection, the out binary is not cleaned
+        after reset, clean the out binary files
+    4) Fix the issue that enable to close the main log list view issue
+        add judgement in the list form close event, do not close the main log list form
+    5) Fix save issue while exit the application
+        Cause while the system is rename the file, the process of exiting removed the source file
+        to make the rename process failed.
+        Add judgement to remove the source file
+    
+
+================================================================================================
+Version         : 1.4.0.0
+Release Date    : 20180611
+
+Change point:
+1. New feature
+    1) Full exception dump support
+        a. Support on-line exception dump 
+            While exception happen and current is connected to the device, the logging tool should
+            popup an confirm dialog to notify user to dump or not.
+            If confirmed, the user must select the out binary files, then the logging tool should 
+            start to dump the exception by calling full dump application
+        b. Support off-line exception dump
+            Open the exception text file to operate the off-line dump
+        c. Need configure the out binary file from the device output folder
+        
+    2) Log to flash support
+        The log stored in the flash, contains sys log and min dump
+        The sys log maybe contains text log, MSG ID log, audio log and so on.
+        For parsing the MSG ID log, please configure the MSG ID binary file in the "Log binary" of the tool bar
+        The mini dump log is the exception/crash/assert log, if configured the out binary, the logging tool
+        should dump the exception automatically.
+    
+2. Bug fix
+    1) Fix filter issue while saved the log
+    2) Fix flash log dump dll load failed issue
+
+
+================================================================================================
+Version         : 1.3.0.0
+Release Date    : 20180511
+
+Change point:
+1. New feature
+    1). Re-factory the text log database part
+        a. save the text log to temp file diectly - avoid log lost which logging tool exception happen
+        b. no ram to store the text log, save the PC memory
+        c. all search/retrieve are both from file, no any more RAM search.
+
+    2). Logging tool crash meesage box
+        While logging tool meets the assert/crash, show a explain message box to alert user
+
+    3). Add shortcut for actions, and sync the actions between menu and tool bar
+        Remove the menu actions, use the tool bar actions
+        Shortcut list:
+        Ctrl+O      Open the log file
+        Ctrl+S      Save the logs
+        Ctrl+F      Find/search text log
+        Ctrl+R      Start to catch the logs
+        Ctrl+T      Stop to catch
+        Ctrl+X      Serial port configuration
+        Ctrl+Q      Exit the application
+        Ctrl+D      Configure the log configrations
+        Ctrl+L      Configure the log binary for message ID log     
+
+    4). Support send command to device to trigger exception dump (memory dump)
+        Click the "Assert" action button, the logging tool should send command to device to trigger the device
+        to assert or crash, which should be used to dump the memory of the device.
+        
+    5). Support binary dump
+        Can display the binary data in the tool and split with 16 bytes into a line
+        Click the right mouse button, and then click the "Detail" button to show the log detail information
+        
+    6). Support save log configuration into NVDM
+        Add UI check box to confirm save to NVDM
+        Add new command to support save to NVDM feature
+
+2. Bug fix
+    1). Search button enable time
+        Only when current is stopped, and exist the text logs
+        
+    2). Save button enable time
+        Only when current is stopped, and exist some logs to save.
+        
+    3). Search list window and main log window sync issue
+        The search list and main log window are using the same signal, so sometimes one update may 
+        also update another.
+
+        
+================================================================================================
+Version 1.2.0.0
+
+Change point:
+1. New feature
+    1). Add regular expression search support
+        It support case sensitive regular search
+        Check on the "Regular Search" check box in the search dialog to enable the regular search feature
+   
+    2). Add copy feature
+        If some logs are selected, click the right mouse button to copy the selected line into clipboard.
+        If no logs selected, the copy menu should not popup.
+   
+    3). Save text log into temp file while exception happen
+        This to make sure no text log lost, and user can open the saved temp file to check the errors
+    
+    4). Collect the throughput
+        Show the throughput in real-time for per second
+        Save the throughput into a file named throughput.txt
+       
+    5). Support to set the UART flow control
+        Add flow control in the Comport configure dialog
+
+2. Bug fix 
+    1). Configuration retrieve issue
+        Sometimes the log configuration cannot retrieve succeed
+        a. The tool start before than the device
+        b. The device is not ready when the logging tool is ready.
+
+
+================================================================================================
+Version 1.1.0.0
+
+Change point:
+1. Disable the handshake feature
+   Disable send handshake start request to device, direct change to handshake done state
+   Disable send handshake stop request, close the UART/USB directly
+2. Fix missey code issue (add handshake done parameter for charge)
+   In the text log handler, do not handle the non-TLV format data. Parse the data with TLV format
+   TL + Timestamp + Processor + Pading + [M: C: F: L:] : log
+3. Enhance
+   While the uart is close/plugout, and current the exception is dumpling, the dialog is execute,
+   then the exception log handler should emit a signal with RECEIVING_STATE_ERROR_HAPPEN to dismiss the dialog
+4. Add feature
+   Support MSG ID module, level, function, line parse flow.
+
+
+================================================================================================
+Version 1.0.0.0
+
+Initialization version
+
+Support Features:
+1. Ready to read data from UART/USB
+2. Parse TLV format
+3. Support Text Log, Exception Dump, Msg ID log
+

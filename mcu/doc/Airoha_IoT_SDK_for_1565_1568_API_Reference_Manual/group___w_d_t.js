@@ -1,0 +1,28 @@
+var group___w_d_t =
+[
+    [ "Define", "group__hal__wdt__define.html", "group__hal__wdt__define" ],
+    [ "Enum", "group__hal__wdt__enum.html", "group__hal__wdt__enum" ],
+    [ "Struct", "group__hal__wdt__struct.html", "group__hal__wdt__struct" ],
+    [ "Typedef", "group__hal__wdt__typedef.html", "group__hal__wdt__typedef" ],
+    [ "HAL_WDT_MAX_TIMEOUT_VALUE", "group___w_d_t.html#ga04e0115de4a0e620daeca999923b679f", null ],
+    [ "hal_wdt_deinit", "group___w_d_t.html#ga5d91b7c10c550f518e138b14a6f297b0", null ],
+    [ "hal_wdt_deinit_ext", "group___w_d_t.html#gaa7bb16705e6f23e653675a61baf16a90", null ],
+    [ "hal_wdt_disable", "group___w_d_t.html#ga0ecc63cb5b2ff30b2863c534333bdf1f", null ],
+    [ "hal_wdt_disable_ext", "group___w_d_t.html#ga282c40eda9c170c7851ca1b39a044e89", null ],
+    [ "hal_wdt_enable", "group___w_d_t.html#ga338f49e37886f11f340f125d907a922a", null ],
+    [ "hal_wdt_enable_ext", "group___w_d_t.html#gab35bf3c83cd76c6d8809a5994c94931a", null ],
+    [ "hal_wdt_feed", "group___w_d_t.html#ga6b150c49c6fb05c7095828fda7eea46e", null ],
+    [ "hal_wdt_feed_ext", "group___w_d_t.html#gae6c30d5a27771859cad6b05180d92944", null ],
+    [ "hal_wdt_get_enable_status", "group___w_d_t.html#gab24bec33f4f0018de5d9b4c5be7b1945", null ],
+    [ "hal_wdt_get_enable_status_ext", "group___w_d_t.html#gac1b37885a27daa909b1b249c6617bbeb", null ],
+    [ "hal_wdt_get_mode", "group___w_d_t.html#gab55e5e61ddf8d918d309c9adee743309", null ],
+    [ "hal_wdt_get_mode_ext", "group___w_d_t.html#gabcb2c764d88b61a0eedb8087c674a0da", null ],
+    [ "hal_wdt_get_reset_status", "group___w_d_t.html#gab18a2db7110a25f2da6669c6e726f9a4", null ],
+    [ "hal_wdt_get_reset_status_ext", "group___w_d_t.html#ga35ace247131c32d0d580b762b5c48f40", null ],
+    [ "hal_wdt_init", "group___w_d_t.html#gad70a5a8d180a66e9dafe00646ec24001", null ],
+    [ "hal_wdt_init_ext", "group___w_d_t.html#ga435052b580386c5af047003bb5efd40d", null ],
+    [ "hal_wdt_register_callback", "group___w_d_t.html#ga5af617d234a009d8b5ae34405b385639", null ],
+    [ "hal_wdt_register_callback_ext", "group___w_d_t.html#ga521e59b120e0cfd4e409db93cfdecb51", null ],
+    [ "hal_wdt_software_reset", "group___w_d_t.html#ga89a0aadab692ed1325167ae0061e0238", null ],
+    [ "hal_wdt_software_reset_ext", "group___w_d_t.html#ga9b3df255e67858d9a690c286c3721f1d", null ]
+];

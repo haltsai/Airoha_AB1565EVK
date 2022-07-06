@@ -1,0 +1,300 @@
+# Copyright Statement:                                                                                               
+#                                                                                                                    
+# (C) 2017  Airoha Technology Corp. All rights reserved.                                                             
+#                                                                                                                    
+# This software/firmware and related documentation ("Airoha Software") are                                           
+# protected under relevant copyright laws. The information contained herein                                          
+# is confidential and proprietary to Airoha Technology Corp. ("Airoha") and/or its licensors.                        
+# Without the prior written permission of Airoha and/or its licensors,                                               
+# any reproduction, modification, use or disclosure of Airoha Software,                                              
+# and information contained herein, in whole or in part, shall be strictly prohibited.                               
+# You may only use, reproduce, modify, or distribute (as applicable) Airoha Software                                 
+# if you have agreed to and been bound by the applicable license agreement with                                      
+# Airoha ("License Agreement") and been granted explicit permission to do so within                                  
+# the License Agreement ("Permitted User").  If you are not a Permitted User,                                        
+# please cease any access or use of Airoha Software immediately.                                                     
+# BY OPENING THIS FILE, RECEIVER HEREBY UNEQUIVOCALLY ACKNOWLEDGES AND AGREES                                        
+# THAT AIROHA SOFTWARE RECEIVED FROM AIROHA AND/OR ITS REPRESENTATIVES                                               
+# ARE PROVIDED TO RECEIVER ON AN "AS-IS" BASIS ONLY. AIROHA EXPRESSLY DISCLAIMS ANY AND ALL                          
+# WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF                             
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NONINFRINGEMENT.                                              
+# NEITHER DOES AIROHA PROVIDE ANY WARRANTY WHATSOEVER WITH RESPECT TO THE                                            
+# SOFTWARE OF ANY THIRD PARTY WHICH MAY BE USED BY, INCORPORATED IN, OR                                              
+# SUPPLIED WITH AIROHA SOFTWARE, AND RECEIVER AGREES TO LOOK ONLY TO SUCH                                            
+# THIRD PARTY FOR ANY WARRANTY CLAIM RELATING THERETO. RECEIVER EXPRESSLY ACKNOWLEDGES                               
+# THAT IT IS RECEIVER'S SOLE RESPONSIBILITY TO OBTAIN FROM ANY THIRD PARTY ALL PROPER LICENSES                       
+# CONTAINED IN AIROHA SOFTWARE. AIROHA SHALL ALSO NOT BE RESPONSIBLE FOR ANY AIROHA                                  
+# SOFTWARE RELEASES MADE TO RECEIVER'S SPECIFICATION OR TO CONFORM TO A PARTICULAR                                   
+# STANDARD OR OPEN FORUM. RECEIVER'S SOLE AND EXCLUSIVE REMEDY AND AIROHA'S ENTIRE AND                               
+# CUMULATIVE LIABILITY WITH RESPECT TO AIROHA SOFTWARE RELEASED HEREUNDER WILL BE,                                   
+# AT AIROHA'S OPTION, TO REVISE OR REPLACE AIROHA SOFTWARE AT ISSUE,                                                 
+# OR REFUND ANY SOFTWARE LICENSE FEES OR SERVICE CHARGE PAID BY RECEIVER TO                                          
+# AIROHA FOR SUCH AIROHA SOFTWARE AT ISSUE.                                                                          
+#                                                                                                                    
+
+IC_CONFIG                             = ab156x
+BOARD_CONFIG                          = ab156x_evb
+IC_TYPE                               = ab1565
+BOARD_TYPE                            = ab1565_evb
+
+# Using specific linker script during linking process.
+LINKER_SCRIPT_FILE                    = dsp0_flash_leaudio_dongle.lcf
+
+# debug level: none, error, warning, info and debug
+MTK_DEBUG_LEVEL                       = info
+
+# let syslog dump to flash
+MTK_SAVE_LOG_TO_FLASH_ENABLE          = n
+
+# heap peak profiling
+MTK_HEAP_SIZE_GUARD_ENABLE            = n
+
+CCCI_ENABLE                           = n
+###################################################
+# bt at command
+MTK_BT_AT_COMMAND_ENABLE = y
+
+# port service
+MTK_PORT_SERVICE_ENABLE = y
+
+#SWLA
+MTK_SWLA_ENABLE                       = y
+# heap dump
+MTK_SUPPORT_HEAP_DEBUG_ENABLE         = y
+#cpu mips profiling
+AIR_CPU_MCPS_PRIORING_ENABLE          = n
+
+MTK_USB_DEMO_ENABLED                  = n
+
+#NVDM feature
+MTK_NVDM_ENABLE = y
+
+# bt codec enable
+MTK_BT_CODEC_ENABLED = y
+
+# BT A2DP codec AAC support
+MTK_BT_A2DP_AAC_ENABLE = y
+
+# BT A2DP codec vendor support
+VENDOR_LIB = $(strip $(ROOTDIR))/prebuilt/middleware/third_party/dspalg/vendor_decoder/vend.flag
+ifeq ($(VENDOR_LIB), $(wildcard $(VENDOR_LIB)))
+MTK_BT_A2DP_VENDOR_ENABLE =  n
+MTK_BT_A2DP_VENDOR_BC_ENABLE = n
+endif
+
+# BT A2DP codec CELT support
+MTK_BT_A2DP_AIRO_CELT_CODE = $(strip $(ROOTDIR))/middleware/third_party/dspalg/celt_decoder/module.mk
+ifeq ($(MTK_BT_A2DP_AIRO_CELT_CODE), $(wildcard $(MTK_BT_A2DP_AIRO_CELT_CODE)))
+MTK_BT_A2DP_AIRO_CELT_ENABLE = y
+MTK_BT_CELT_USE_PIC = y
+endif
+
+# Load Clk Skew Lib From Source Code or Object File
+CLKSKEW_LIB = $(strip $(ROOTDIR))/middleware/MTK/dspalg/clk_skew_protected/module.mk
+ifeq ($(CLKSKEW_LIB), $(wildcard $(CLKSKEW_LIB)))
+MTK_BT_CLK_SKEW_LOAD_ENABLE =  y
+else
+MTK_BT_CLK_SKEW_LOAD_ENABLE =  n
+endif
+
+# BT A2DP codec SRC support
+MTK_SRC_ENABLE = n
+
+# avm direct feature
+MTK_AVM_DIRECT                       = y
+
+# BT Dual mode
+MTK_BT_DUO_ENABLE = y
+
+# bt module enable
+MTK_BT_ENABLE                       = y
+MTK_BLE_ONLY_ENABLE                 = n
+MTK_BT_HFP_ENABLE                   = n
+MTK_BT_HFP_FORWARDER_ENABLE         = y
+MTK_BT_AVRCP_ENABLE                 = y
+MTK_BT_AVRCP_ENH_ENABLE             = y
+MTK_BT_A2DP_ENABLE                  = n
+MTK_BT_PBAP_ENABLE                  = n
+MTK_BT_SPP_ENABLE                   = y
+MTK_BT_AVM_SHARE_BUF                = n
+# aws earbuds feature
+MTK_AWS                             = n
+
+#BT external timer
+MTK_BT_TIMER_EXTERNAL_ENABLE = y
+MTK_PORT_SERVICE_ENABLE               = y
+
+#DSP Audio Message
+MTK_DSP_AUDIO_MESSAGE_ENABLE        = y
+
+# CM4 playback module
+MTK_CM4_PLAYBACK_ENABLE = n
+
+#ULL Dongle local playback enable
+MTK_ULL_DONGLE_LOCAL_PLAYBACK_ENABLE = n
+
+# CM4 record module
+MTK_CM4_RECORD_ENABLE = n
+
+# Voice Prompt module
+MTK_PROMPT_SOUND_ENABLE = n
+
+# I2S Slave module
+MTK_I2S_SLAVE_ENABLE = n
+
+# PEQ module
+MTK_PEQ_ENABLE = n
+
+# linein playback
+MTK_LINEIN_PLAYBACK_ENABLE = n
+AIR_DRC_ENABLE = n
+
+# SIDETONE module
+AIR_SIDETONE_ENABLE = n
+
+# Audio Dump
+MTK_AUDIO_DUMP_BY_CONFIGTOOL = y
+
+# AirDump module
+MTK_AIRDUMP_EN = y
+
+# For 1568 ALG interface (compander)
+MTK_BT_HFP_SPE_ALG_V2 = y
+
+# AGC module
+MTK_VOICE_AGC_ENABLE = n
+
+# Voice PLC module
+AIR_VOICE_PLC_ENABLE = n
+
+# Mute smoother module
+AIR_MUTE_SMOOTHER_ENABLE = n
+
+PRELOADER_ENABLE = y
+        DSP0_PISPLIT_DEMO_LIBRARY = n
+        MTK_BT_A2DP_AAC_USE_PIC = y
+        MTK_BT_A2DP_SBC_USE_PIC = y
+        MTK_BT_A2DP_MSBC_USE_PIC = n
+        MTK_BT_A2DP_CVSD_USE_PIC = n
+        MTK_BT_CLK_SKEW_USE_PIC = y
+ifeq ($(MTK_BT_A2DP_VENDOR_ENABLE),y)
+		MTK_BT_A2DP_VENDOR_USE_PIC = y
+endif
+ifeq ($(MTK_PEQ_ENABLE),y)
+        MTK_BT_PEQ_USE_PIC = y
+endif
+ifeq ($(AIR_VOICE_PLC_ENABLE),y)
+        MTK_PLC_USE_PIC = y
+endif
+    PRELOADER_ENABLE_DSP0_LOAD_FOR_DSP1 = n
+        DSP1_PISPLIT_DEMO_LIBRARY = n
+
+# Low power level
+MTK_LOWPOWER_LEVEL = 2
+
+# HWSRC for DL1
+ENABLE_HWSRC_ON_MAIN_STREAM = n
+
+# AMP delay timer
+ENABLE_AMP_TIMER = n
+
+# SideTone Gain Ramp
+ENABLE_SIDETONE_RAMP_TIMER = n
+# DEFAULT ENABLE DSP HW LOOPBACK
+AB1568_BRING_UP_DSP_DEFAULT_HW_LOOPBACK = n
+
+# 2a2d 
+MTK_AUDIO_SUPPORT_MULTIPLE_MICROPHONE = y
+
+# Use HWSRC to do clkskew
+ENABLE_HWSRC_CLKSKEW = n
+
+# audio transmitter
+MTK_AUDIO_TRANSMITTER_ENABLE = y
+
+# audio bt common
+MTK_AUDIO_BT_COMMON_ENABLE = y
+
+# audio gaming mode
+MTK_GAMING_MODE_HEADSET = n
+AIR_GAMING_MODE_DONGLE_ENABLE = y
+AIR_GAMING_MODE_UPLINK_LANTENCY_DEBUG_ENABLE = n
+
+# CELT encoder enable
+AIR_CELT_ENC_CODE = $(strip $(ROOTDIR))/middleware/third_party/dspalg/celt_encoder/module.mk
+ifeq ($(AIR_CELT_ENC_CODE), $(wildcard $(AIR_CELT_ENC_CODE)))
+AIR_CELT_ENC_ENABLE = y
+endif
+
+# Software SRC enable
+AIR_SOFTWARE_SRC_ENABLE = y
+
+# Software clk skew enable
+AIR_SOFTWARE_CLK_SKEW_ENABLE = y
+
+# Software gain enable
+AIR_SOFTWARE_GAIN_ENABLE = y
+
+# Software mixer enable
+AIR_SOFTWARE_MIXER_ENABLE = y
+
+# Software buffer enable
+AIR_SOFTWARE_BUFFER_ENABLE = y
+
+# Leakage detection
+MTK_LEAKAGE_DETECTION_ENABLE     = n
+
+#User triggered adaptive ANC
+ifeq ($(MTK_ANC_ENABLE), y)
+MTK_USER_TRIGGER_FF_CODE = $(strip $(ROOTDIR))/middleware/MTK/dspalg/user_trigger_ff/user_trigger_adaptive_ff_v2/module.mk
+ifeq ($(MTK_USER_TRIGGER_FF_CODE), $(wildcard $(MTK_USER_TRIGGER_FF_CODE)))
+MTK_USER_TRIGGER_FF_ENABLE     = n
+endif
+endif
+
+#Dongle afe usage check enable
+AIR_DONGLE_AFE_USAGE_CHECK_ENABLE = y
+
+# Dongle game chat volume smart balance enable
+AIR_VOLUME_ESTIMATOR_ENABLE = y
+AIR_GAME_CHAT_VOLUME_SMART_BALANCE_ENABLE = y
+
+MTK_BT_A2DP_AAC_ENABLE = n
+MTK_BT_A2DP_SBC_ENABLE = n
+MTK_BT_A2DP_AAC_USE_PIC = n
+MTK_BT_A2DP_SBC_USE_PIC = n
+
+AIR_BT_HFP_MSBC_ENABLE = n
+AIR_BT_HFP_CVSD_ENABLE = n
+
+# Audio hardware enable
+AIR_AUDIO_HARDWARE_ENABLE   = n
+MTK_AUDIO_LOOPBACK_TEST_ENABLE = n
+
+# Clock skew enable
+AIR_BT_CLK_SKEW_ENABLE = n
+
+# For NR offload
+ifneq ($(wildcard $(strip $(ROOTDIR))/prebuilt/middleware/third_party/dspalg/igo_nr/),)
+    AIR_VOICE_DRC_ENABLE = y
+    MTK_3RD_PARTY_NR = y
+    AIR_IGO_NR_ENABLE = y
+    MTK_BT_A2DP_CPD_USE_PIC = y
+    MTK_BT_A2DP_ECNR_USE_PIC = y
+    AIR_GAMING_MODE_HEADSET_ECNR_ENABLE = n
+    AIR_GAMING_MODE_DONGLE_ECNR_ENABLE = y
+    AIR_ECNR_POST_PART_USE_PIC_ENABLE = y
+    AIR_ECNR_POST_PART_ENABLE = y
+    AIR_VOICE_NR_ENABLE = y
+else
+    AIR_VOICE_DRC_ENABLE = n
+    MTK_3RD_PARTY_NR = n
+    AIR_IGO_NR_ENABLE = n
+    MTK_BT_A2DP_CPD_USE_PIC = n
+    MTK_BT_A2DP_ECNR_USE_PIC = n
+    AIR_GAMING_MODE_HEADSET_ECNR_ENABLE = n
+    AIR_GAMING_MODE_DONGLE_ECNR_ENABLE = n
+    AIR_ECNR_POST_PART_USE_PIC_ENABLE = n
+    AIR_ECNR_POST_PART_ENABLE = n
+    AIR_VOICE_NR_ENABLE = n
+endif

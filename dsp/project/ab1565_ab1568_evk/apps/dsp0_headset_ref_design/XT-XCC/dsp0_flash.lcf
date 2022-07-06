@@ -1,0 +1,367 @@
+/* ===========================================================================
+ *
+ * @COPYRIGHT	Copyright(c) 2015 AIROHA TECHNOLOGY CORP. CO., LTD. ALL RIGHTS RESERVED
+ *
+ * @DETAILS		The reference linker command file for the Andes.  Applications
+ *   			may use unmodified, or copy this to an application directory to
+ *   			modify as needed.
+ *
+ * =========================================================================== */
+ENTRY(_ResetVector_text_start)
+
+MEMORY {
+    ROM_DSP0(rx)                   : ORIGIN = 0x08013000, LENGTH = 568K
+    VROM_DSP0(rx)                  : ORIGIN = 0x88013000, LENGTH = 568K
+    IRAM(rx)                       : ORIGIN = 0x04580000, LENGTH = 192K
+    DRAM(rw)                       : ORIGIN = 0x04500000, LENGTH = 512K
+    SYSRAM_DSP0 (rwx)              : ORIGIN = 0x04257000, LENGTH = 0K
+    VSYSRAM_DSP0 (rwx)             : ORIGIN = 0x84257000, LENGTH = 0K
+    ROM_LOG_STRING(rx)             : ORIGIN = 0x06000000, LENGTH = 32M
+}
+
+ /* Highest address of the stack */
+__stack = ORIGIN(DRAM) + _stack_size;    /* begin of DRAM */
+
+/* Generate a link error if stack don't fit into DRAM */
+_stack_size = 0x1000; /* required amount of stack 4KB */
+
+/* stack start */
+_stack_start = ORIGIN(DRAM);
+
+/* swla size */
+_swla_size = 1024;
+
+/* Linker symbol provided for C/Assembly Code */
+_iram_start     = ORIGIN(IRAM);
+_iram_length    = LENGTH(IRAM);
+_dram_start     = ORIGIN(DRAM);
+_dram_length    = LENGTH(DRAM);
+_sysram_start   = ORIGIN(SYSRAM_DSP0);
+_sysram_length  = LENGTH(SYSRAM_DSP0);
+_vsysram_start  = ORIGIN(VSYSRAM_DSP0);
+_vsysram_length = LENGTH(VSYSRAM_DSP0);
+
+SECTIONS {
+    /* @@@static vector@@@ */
+    _ResetVector_load = LOADADDR(.ResetVector.text);
+    .ResetVector.text : ALIGN(8)
+    {
+        _ResetVector_text_start = ABSOLUTE(.);
+        KEEP (*(.ResetVector.literal .ResetVector.text))
+        KEEP (*(.Reset.literal .Reset.text))
+        /* . = ABSOLUTE(_ResetVector_text_start) + 0x400; */
+        _ResetVector_text_end = ALIGN(0x8);
+    } >ROM_DSP0   AT > ROM_DSP0
+
+    /* @@@Dynamic vectors@@@ */
+    _DynamicVectors_load = LOADADDR(.DynamicVectors.text);
+    .DynamicVectors.text : ALIGN(8)
+    {
+        _DynamicVectors_start = ABSOLUTE(.);
+
+        /* WindowVectors literal and text */
+        _WindowVectors_text_start = ABSOLUTE(.);
+        KEEP (*(.WindowVectors.text))
+        . = ALIGN(4);
+        _WindowVectors_text_end = ABSOLUTE(.);
+        . = ABSOLUTE(_WindowVectors_text_start) + 0x178;
+
+        /* Level2 literal and text */
+        _Level2InterruptVector_literal_start = ABSOLUTE(.);
+        *(.Level2InterruptVector.literal)
+        . = ABSOLUTE(_Level2InterruptVector_literal_start) + 0x4;
+        _Level2InterruptVector_text_start = ABSOLUTE(.);
+        KEEP (*(.Level2InterruptVector.text))
+        . = ABSOLUTE(_Level2InterruptVector_text_start) + 0x1c;
+
+        /* Level3 literal and text */
+        _Level3InterruptVector_literal_start = ABSOLUTE(.);
+        *(.Level3InterruptVector.literal)
+        . = ABSOLUTE(_Level3InterruptVector_literal_start) + 0x4;
+        _Level3InterruptVector_text_start = ABSOLUTE(.);
+        KEEP (*(.Level3InterruptVector.text))
+        . = ABSOLUTE(_Level3InterruptVector_text_start) + 0x1c;
+
+        /* Level4 literal and text */
+        _Level4InterruptVector_literal_start = ABSOLUTE(.);
+        *(.Level4InterruptVector.literal)
+        . = ABSOLUTE(_Level4InterruptVector_literal_start) + 0x4;
+        _Level4InterruptVector_text_start = ABSOLUTE(.);
+        KEEP (*(.Level4InterruptVector.text))
+        . = ABSOLUTE(_Level4InterruptVector_text_start) + 0x1c;
+
+        /* DebugException literal and text */
+        _DebugExceptionVector_literal_start = ABSOLUTE(.);
+        *(.DebugExceptionVector.literal)
+        . = ABSOLUTE(_DebugExceptionVector_literal_start) + 0x4;
+        _DebugExceptionVector_text_start = ABSOLUTE(.);
+        KEEP (*(.DebugExceptionVector.text))
+        . = ABSOLUTE(_DebugExceptionVector_text_start) + 0x1c;
+
+        /* NMIException literal and text */
+        _NMIExceptionVector_literal_start = ABSOLUTE(.);
+        *(.NMIExceptionVector.literal)
+        . = ABSOLUTE(_NMIExceptionVector_literal_start)+ 0x4;
+        _NMIExceptionVector_text_start = ABSOLUTE(.);
+        KEEP (*(.NMIExceptionVector.text))
+        . = ABSOLUTE(_NMIExceptionVector_text_start) + 0x1c;
+
+        /* KernelException literal and text */
+        _KernelExceptionVector_literal_start = ABSOLUTE(.);
+        *(.KernelExceptionVector.literal)
+        . = ABSOLUTE(_KernelExceptionVector_literal_start) + 0x4;
+        _KernelExceptionVector_text_start = ABSOLUTE(.);
+        KEEP (*(.KernelExceptionVector.text))
+        . = ABSOLUTE(_KernelExceptionVector_text_start) + 0x1c;
+
+        /* UserException literal and text */
+        _UserExceptionVector_literal_start = ABSOLUTE(.);
+        *(.UserExceptionVector.literal)
+        . = ABSOLUTE(_UserExceptionVector_literal_start) + 0x4;
+        _UserExceptionVector_text_start = ABSOLUTE(.);
+        KEEP (*(.UserExceptionVector.text))
+        . = ABSOLUTE(_UserExceptionVector_text_start) + 0x1c;
+
+        /* DoubleException literal and text */
+        _DoubleExceptionVector_literal_start = ABSOLUTE(.);
+        *(.DoubleExceptionVector.literal)
+        . = ABSOLUTE(_DoubleExceptionVector_literal_start) + 0x4;
+        _DoubleExceptionVector_text_start = ABSOLUTE(.);
+        KEEP (*(.DoubleExceptionVector.text))
+        . = ABSOLUTE(_DoubleExceptionVector_text_start) + 0x1c;
+
+        _DynamicVectors_end = ABSOLUTE(.);
+    } >IRAM   AT > ROM_DSP0
+
+    /* @@@rom text and rodata@@@ */
+    _text_load = LOADADDR(.text);
+    . =  ORIGIN(ROM_DSP0)+ SIZEOF(.ResetVector.text)+SIZEOF(.DynamicVectors.text);
+    . = ALIGN(8);
+    .text . : ALIGN(8)
+    {
+        _text_start = ABSOLUTE(.);
+
+        *(EXCLUDE_FILE (*libm.a *libc.a *libgcc.a *libhal.a *libgloss.a *libhandlers-board.a *libctxsw.a *libcvsd_wb_nb_v11_for_155x.a *libmsbc_enc_68.a *libmsbcdec_68.a *libSBCdec_68.a *libxa_sbc_dec.a *libxa_aac_loas_dec.a *libcpd50.a *libecnr50.a *libplc_pitch.a *libsampler_by_2.a *libAACdec_68.a *libwwe68_bf.a *libab1568_google_hotword_dsp_multi_bank_api.a *libpryon_lite-PRL1000.a *lib_xt_dsp_1568.a *liblc3_codec.a *liblc3i_init.a *libld_v2.a *libanc_ut.a *libaudio_bist.a *libcelt_codec_1565.a *libswsrc_1565.a) .text*)
+        *libm.a:*(.literal* .text*)
+        *libc.a:*(.literal* .text*)
+        *libgcc.a:*(.literal* .text*)
+        *libhal.a:*(.literal* .text*)
+        *libgloss.a:*(.literal* .text*)
+        *libhandlers-board.a:*(.literal* .text*)
+        *libctxsw.a:*(.literal* .text*)
+
+        *libcvsd_wb_nb_v11_for_155x.a:*(.literal* .text*)
+        *libmsbc_enc_68.a:*(.literal* .text*)
+        *libmsbcdec_68.a:*(.literal* .text*)
+        *libSBCdec_68.a:*(.literal* .text*)
+        *libxa_sbc_dec.a:*(.literal* .text*)
+        *libxa_aac_loas_dec.a:*(.literal* .text*)
+        *libcpd50.a:*(.literal* .text*)
+        *libecnr50.a:*(.literal* .text*)
+        *libplc_pitch.a:*(.literal* .text*)
+        *libsampler_by_2.a:*(.literal* .text*)
+        *libAACdec_68.a:*(.literal* .text*)
+        *libwwe68_bf.a:*(.literal* .text*)
+        *libab1568_google_hotword_dsp_multi_bank_api.a:*(.literal* .text*)
+        *libpryon_lite-PRL1000.a:*(.literal* .text*)
+        *lib_xt_dsp_1568.a:*(.literal* .text*)
+        *liblc3_codec.a:*(.literal* .text*)
+        *liblc3i_init.a:*(.literal* .text*)
+        *libld_v2.a:*(.literal* .text*)
+        *libanc_ut.a:*(.literal* .text*)
+        *libaudio_bist.a:*(.literal* .text*)
+        *libswsrc_1565.a:*(.literal* .text*)
+        *(.init.literal .init)
+        *(.rodata)
+        *(.rodata.*)
+
+        . = ALIGN(4);
+        _log_filter_start = .;
+        KEEP(*(SORT_BY_NAME(.log_filter.*)))
+        _log_filter_end = .;
+
+        . = ALIGN(8);
+        _text_end = ABSOLUTE(.);
+    } >ROM_DSP0   AT > ROM_DSP0
+
+    /* @@@iram text@@@ */
+    _iram_text_load = LOADADDR(.iram.text);
+    .iram.text : ALIGN(8)
+    {
+        . = ALIGN(8);
+        _iram_text_start = ABSOLUTE(.);
+
+        *(.iram*)
+        *liblc3_codec.a:*(.sysram*)
+        *libcelt_codec_1565.a:*(.literal* .text*)
+
+        . = ALIGN(8);
+        _iram_text_end = ABSOLUTE(.);
+    } >IRAM    AT > ROM_DSP0
+
+    /* @@@region loader@@@ */
+    _region_loader_load = LOADADDR(.region_loader);
+    .region_loader : ALIGN(8)
+    {
+        . = ALIGN(8);
+        _region_loader_start = ABSOLUTE(.);
+
+        *(.region_loader.literal .region_loader.text)
+
+        . = ALIGN(8);
+        _region_loader_end = ABSOLUTE(.);
+    } >IRAM    AT > ROM_DSP0
+
+    /* @@@iram pic memory@@@ */
+    .preloader_pic_iram (NOLOAD) :
+    {
+        . = ALIGN(8);
+        _preloader_pic_iram_start = .;
+
+        . = ALIGN(8);
+        _preloader_pic_iram_end   = ORIGIN(IRAM)+ LENGTH(IRAM);
+    } > IRAM
+
+    /* @@@stack memory@@@ */
+    .stack (NOLOAD) :
+    {
+        . = ALIGN(8);
+
+        . = . + _stack_size;
+        *(.isr_stack)
+        *(.isr_stack*)
+
+        . = ALIGN(8);
+    } > DRAM
+
+    /* @@@dram data and bss@@@ */
+    _data_load = LOADADDR(.data);
+    .data : ALIGN(8)
+    {
+        . = ALIGN(8);
+        _data_start = ABSOLUTE(.);
+
+        *(.data)
+        *(.data*)
+        KEEP (*(.eh_frame))
+
+        . = ALIGN(8);
+        _data_end = ABSOLUTE(.);
+    } >DRAM   AT > ROM_DSP0
+
+    .bss (NOLOAD):
+    {
+        . = ALIGN(8);
+        _bss_start = ABSOLUTE(.);
+
+        *(.bss)
+        *(.bss*)
+        *(COMMON)
+
+        . = ALIGN(8);
+        _bss_end = ABSOLUTE(.);
+    } > DRAM
+
+    /* @@@swla memory@@@ */
+    .swla (NOLOAD) :
+    {
+        _swla_start = .;
+        . = ALIGN(8);
+
+        . = . + (_swla_size) ;
+
+        . = ALIGN(8);
+        _swla_end = .;
+    } > DRAM
+
+    /* @@@dram pic memory@@@ */
+    .preloader_pic_dram (NOLOAD) :
+    {
+        . = ALIGN(8);
+        _preloader_pic_dram_start = .;
+
+        . = ALIGN(8);
+        _preloader_pic_dram_end   = ORIGIN(DRAM)+ LENGTH(DRAM);
+    } > DRAM
+
+    /* @@@cached sysram text/data and bss@@@ */
+    . = ALIGN(16);
+    _cached_sysram_text_data_load = LOADADDR(.cached_sysram_text_data);
+    .cached_sysram_text_data :ALIGN(8)
+    {
+        . = ALIGN(8);
+        _cached_sysram_text_data_start = .;
+
+        *(.sysram_code)
+        *(.sysram_code*)
+        *(.sysram_rodata)
+        *(.sysram_rodata*)
+        *(.cached_sysram_rwdata)
+        *(.cached_sysram_rwdata*)
+
+        . = ALIGN(8);
+        _cached_sysram_text_data_end = .;
+    } > SYSRAM_DSP0   AT> ROM_DSP0
+
+    .cached_sysram_bss (NOLOAD) :
+    {
+        . = ALIGN(8);
+        _cached_sysram_bss_start = .;
+
+        *(.cached_sysram_zidata)
+        *(.cached_sysram_zidata*)
+
+        . = ALIGN(8);
+        _cached_sysram_bss_end = .;
+    } > SYSRAM_DSP0  AT> ROM_DSP0
+
+    /* @@@noncached sysram data and bss@@@ */
+    . = ALIGN(16);
+    _noncached_sysram_data_load = LOADADDR(.noncached_sysram_data);
+    . = . + ORIGIN(VSYSRAM_DSP0) - ORIGIN(SYSRAM_DSP0);
+    .noncached_sysram_data . : ALIGN(8)
+    {
+        . = ALIGN(8);
+        _noncached_sysram_data_start = .;
+
+        *(.noncached_sysram_rwdata)
+        *(.noncached_sysram_rwdata*)
+
+        . = ALIGN(8);
+        _noncached_sysram_data_end = .;
+    } > VSYSRAM_DSP0  AT> ROM_DSP0
+
+    .noncached_sysram_bss . (NOLOAD) :
+    {
+        . = ALIGN(8);
+        _noncached_sysram_bss_start = .;
+
+        *(.noncached_sysram_zidata)
+        *(.noncached_sysram_zidata*)
+
+        . = ALIGN(8);
+        _noncached_sysram_bss_end = .;
+    } > VSYSRAM_DSP0  AT> ROM_DSP0
+    _BIN_END_ = LOADADDR(.noncached_sysram_bss);
+
+    ASSERT(_noncached_sysram_bss_end <= (ORIGIN(VSYSRAM_DSP0) + LENGTH(VSYSRAM_DSP0)),"DSP0 SYSRAM_DSP0 expired!!")
+
+    /* @@@log string@@@ */
+    .log_str :
+    {
+        KEEP(*(.log_version))
+        KEEP(*(.log_timestamp))
+        KEEP(*(SORT_BY_NAME(.log_filter_mirror*)))
+        KEEP(*(.log_filter_end))
+        *(.log_string)
+    } > ROM_LOG_STRING  AT> ROM_LOG_STRING
+
+    /* @@@reserved section for debug symbol when add --gc-sections for LDFLAG @@@ */
+    .xt.prop 0:
+    {
+        KEEP (*(.xt.prop))
+        KEEP (*(.xt.prop.*))
+        KEEP (*(.gnu.linkonce.prop.*))
+    }
+}
+

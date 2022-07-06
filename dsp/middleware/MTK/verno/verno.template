@@ -1,0 +1,6 @@
+#include "memory_attribute.h"
+
+char build_date_time_str[] = "$DATE";
+
+ATTR_LOG_TIMESTAMP log_bin_build_date_time_str[] = "$DATE";
+
