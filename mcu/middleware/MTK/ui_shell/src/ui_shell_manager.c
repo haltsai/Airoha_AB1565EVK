@@ -325,6 +325,18 @@ ui_shell_status_t ui_shell_send_event(
         ret = UI_SHELL_STATUS_INVALID_PARAMETER;
     } else {
         UI_SHELL_LOG_MSGID_I("ui_shell_send_event: 0x%x, 0x%x, delay:%d", 3, event_group, event_id, delay_ms);
+
+        switch(event_group) {
+            case 0x1: {
+                switch(event_id) {
+                    case 0x18: {
+                        printf("TYM Enter Pairing\r\n");
+                    } break;
+                }
+            } break;
+        }
+        printf("TYM: 0x%x, 0x%x", event_group, event_id);
+
         if (delay_ms) {
             ui_shell_delay_msg_t msg;
             ui_shell_init_input_delay_msg(&msg,
