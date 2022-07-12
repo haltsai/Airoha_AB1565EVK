@@ -281,11 +281,13 @@ bt_status_t bt_device_manager_gap_event_handler(bt_msg_type_t msg, bt_status_t s
         }
         case BT_POWER_ON_CNF: {
             bt_dmgr_report_id("[BT_DM][POWER][I] BT POWER ON cnf status 0x%x", 1, status);
+            printf("TYM PowerOn A\r\n");
             bt_device_manager_power_on_cnf();
             break;
         }
         case BT_POWER_OFF_CNF: {
             bt_dmgr_report_id("[BT_DM][POWER][I] BT POWER OFF cnf status 0x%x", 1, status);
+            printf("TYM PowerOff A\r\n");
             bt_device_manager_power_off_cnf();
             break;
         }

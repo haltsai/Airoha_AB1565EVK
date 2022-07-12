@@ -379,6 +379,7 @@ void                bt_cm_power_update(void *params)
         g_bt_cm_edr_power_cnt.flags = 0;
         g_bt_cm_edr_power_cnt.cur_state = BT_CM_POWER_STATE_ON;
         bt_cmgr_report_id("[BT_CM][POWER][I] BT POWER ON cnf", 0);
+        printf("TYM PowerOn E\r\n");
         bt_cm_power_state_update_ind_t state = {
             .power_state = BT_CM_POWER_STATE_ON
         };
@@ -416,6 +417,7 @@ void                bt_cm_power_update(void *params)
         }
         g_bt_cm_edr_power_cnt.flags = 0;
         bt_cmgr_report_id("[BT_CM][POWER][I] BT POWER OFF cnf", 0);
+        printf("TYM PowerOff E\r\n");
         bt_cm_power_off_cnf(g_bt_cm_edr_power_status);
         bt_cm_power_state_update_ind_t state = {
             .power_state = BT_CM_POWER_STATE_OFF
