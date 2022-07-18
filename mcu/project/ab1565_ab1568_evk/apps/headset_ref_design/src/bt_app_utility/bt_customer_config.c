@@ -320,7 +320,7 @@ const bt_gap_config_t *bt_customer_config_get_gap_config(void)
             local_addr = bt_device_manager_get_local_address();
         }
 
-        snprintf((char *)name, sizeof(name), "H_%.2X%.2X%.2X%.2X%.2X%.2X",
+        snprintf((char *)name, sizeof(name), "TYM_H_%.2X%.2X%.2X%.2X%.2X%.2X",
                  (*local_addr)[5], (*local_addr)[4], (*local_addr)[3],
                  (*local_addr)[2], (*local_addr)[1], (*local_addr)[0]);
     }
