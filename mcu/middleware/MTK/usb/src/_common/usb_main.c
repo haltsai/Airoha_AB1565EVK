@@ -259,7 +259,7 @@ static void usb_task_main(void *pvParameters)
                             }
 
                             if(bAlternateSetting == 0){
-                                LOG_MSGID_I(USB_MAIN, "audio1 speaker disable", 0);
+                                LOG_MSGID_I(USB_MAIN, "TYM_audio1 speaker disable", 0);
                                 hal_usb_disable_rx_endpoint(g_UsbAudio[0].stream_ep_out_id);
                                 hal_usb_clear_rx_endpoint_fifo(g_UsbAudio[0].stream_ep_out_id, HAL_USB_EP_TRANSFER_ISO, false);
                                 /* Reset buffer related variables. */
@@ -272,7 +272,7 @@ static void usb_task_main(void *pvParameters)
                                 g_usb_audio_spk1_status = FALSE;
                                 #endif
                             }else if (bAlternateSetting == 1){
-                                LOG_MSGID_I(USB_MAIN, "audio1 speaker enable", 0);
+                                LOG_MSGID_I(USB_MAIN, "TYM_audio1 speaker enable", 0);
                                 /* Reset buffer related variables. */
                                 g_UsbAudio[0].rx_dma_buffer_is_full = 0;
                                 g_UsbAudio[0].rx_dma_buffer_read = 0;
@@ -295,7 +295,7 @@ static void usb_task_main(void *pvParameters)
                             }
 
                             if(bAlternateSetting == 0){
-                                LOG_MSGID_I(USB_MAIN, "audio2 speaker disable", 0);
+                                LOG_MSGID_I(USB_MAIN, "TYM_audio2 speaker disable", 0);
                                 hal_usb_disable_rx_endpoint(g_UsbAudio[1].stream_ep_out_id);
                                 hal_usb_clear_rx_endpoint_fifo(g_UsbAudio[1].stream_ep_out_id, HAL_USB_EP_TRANSFER_ISO, false);
                                 /* Reset buffer related variables. */
@@ -308,7 +308,7 @@ static void usb_task_main(void *pvParameters)
                                 g_usb_audio_spk2_status = FALSE;
                                 #endif
                             }else if (bAlternateSetting == 1){
-                                LOG_MSGID_I(USB_MAIN, "audio2 speaker enable", 0);
+                                LOG_MSGID_I(USB_MAIN, "TYM_audio2 speaker enable", 0);
                                 /* Reset buffer related variables. */
                                 g_UsbAudio[1].rx_dma_buffer_is_full = 0;
                                 g_UsbAudio[1].rx_dma_buffer_read = 0;
@@ -335,11 +335,11 @@ static void usb_task_main(void *pvParameters)
                             /* Enable/disable endpoint for microphone */
                             if(bAlternateSetting == 0){
                                 hal_usb_disable_tx_endpoint(g_UsbAudio[0].stream_ep_in_id);
-                                LOG_MSGID_I(USB_MAIN, "audio microphone disable", 0);
+                                LOG_MSGID_I(USB_MAIN, "TYM_audio microphone disable", 0);
                             }else if(bAlternateSetting == 1){
                                 hal_usb_enable_tx_endpoint(g_UsbAudio[0].stream_ep_in_id, HAL_USB_EP_TRANSFER_ISO, HAL_USB_EP_USE_NO_DMA, false);
                                 hal_usb_clear_tx_endpoint_fifo(g_UsbAudio[0].stream_ep_in_id, HAL_USB_EP_TRANSFER_ISO, false);
-                                LOG_MSGID_I(USB_MAIN, "audio microphone enable", 0);
+                                LOG_MSGID_I(USB_MAIN, "TYM_audio microphone enable", 0);
                             }
                         }
 #endif
