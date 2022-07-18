@@ -102,7 +102,7 @@ static const char usb_string_audio1[] = "AIROHA Dongle Chat";
 static const char usb_string_audio1[] = "AIROHA Chat";
 #endif
 #else /*only one speaker*/
-static const char usb_string_audio1[] = "AIROHA Speaker";
+static const char usb_string_audio1[] = "TYM_USB_AIROHA Speaker";
 #endif
 
 /* Audio2 Naming */
